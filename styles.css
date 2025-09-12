@@ -27,7 +27,7 @@
         
         /* Header Styles */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
+            background: #2C2929;
             color: white;
             padding: 1rem 0;
             position: sticky;
@@ -250,7 +250,7 @@
         
         /* Footer */
         footer {
-            background: var(--dark);
+            background: #2C2929;
             color: white;
             padding: 2rem 0;
             text-align: center;
