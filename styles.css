@@ -26,7 +26,16 @@ CC :root {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
+        }  
+        .slide-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
         } 
+        .slide-in.active {
+            opacity: 1; 
+            transform: translateY(0);
+        }
 #loader-wrapper {
     position: fixed;
     top: 0;
