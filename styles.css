@@ -18,9 +18,14 @@ CC :root {
             line-height: 1.6;
             color: var(--text);
             background-color: #f9f9f9;
+            font-family: 'Caladea, serif';
         } 
         .brand-name{
             color: #9C220C;
+        } 
+        h1, h2, h3 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
         }
         .container {
             width: 90%;
@@ -151,7 +156,7 @@ CC :root {
         } 
          /* Section Styles */
         section {
-            padding: 4rem 0;
+            padding: 6rem 0;
         }
         
         .section-title {
@@ -363,7 +368,7 @@ CC :root {
         footer {
             background: #2C2929;
             color: white;
-            padding: 2rem 0;
+            padding: 3rem 0;
             text-align: center;
         } 
          .footer-content {
