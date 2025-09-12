@@ -18,15 +18,10 @@ CC :root {
             line-height: 1.6;
             color: var(--text);
             background-color: #f9f9f9;
-            font-family: 'Caladea, serif';
         } 
         .brand-name{
             color: #9C220C;
         } 
-        h1, h2, h3 {
-        font-family: 'Poppins', sans-serif;
-        font-weight: 700;
-        }
         .container {
             width: 90%;
             max-width: 1200px;
