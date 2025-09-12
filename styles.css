@@ -1,4 +1,4 @@
-  :root {
+CC :root {
             --primary: #1a5276;
             --secondary: #2e86c1;
             --accent: #f39c12;
@@ -19,6 +19,9 @@
             color: var(--text);
             background-color: #f9f9f9;
         } 
+        .brand-name{
+            color: #9C220C;
+        }
         .container {
             width: 90%;
             max-width: 1200px;
@@ -46,7 +49,10 @@
             display: flex;
             align-items: center;
         }
-        
+        .logo-img {
+            height: 50px; /* Adjust as needed */
+            margin-right: 10px;
+        }
         .logo h1 {
             font-size: 1.8rem;
             margin-left: 10px;
@@ -164,7 +170,7 @@
         }
         
         .values i {
-            color: var(--accent);
+            color: #9C220C;
             margin-right: 10px;
         }
         
