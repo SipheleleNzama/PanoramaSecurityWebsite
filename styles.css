@@ -500,7 +500,7 @@ CC :root {
 
 
         /* Footer */
-        footer {
+     /*   footer {
             background: #2C2929;
             color: white;
             padding: 3rem 0;
@@ -510,19 +510,68 @@ CC :root {
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-        
-        .social-icons a {
+        } */
+        footer {
+            background-color: #141313;
             color: white;
-            font-size: 1.5rem;
-            margin-left: 1rem;
-            transition: color 0.3s;
+            padding: 3rem 0;
+
+        } 
+        .footer-content {
+            display: grid;
+            grid-template-columns:  1fr 1fr 1fr;
+            gap: 2rem; 
+            align-items: start;
+            justify-content: space-between;
+        } 
+        .footer-logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        } 
+        .footer-logo {
+            width: 100px;
+            height: auto;
+            margin-bottom: 0.5rem;
         }
-        
-        .social-icons a:hover {
-            color: var(--accent);
+        .footer-brand-name {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+        } 
+        .footer-info p,
+        .footer-info a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            line-height: 1.6;
         }
-        
+        .footer-info i{
+        margin-right: 0.5rem;
+        } 
+        .footer-info a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-copyright {
+            text-align: right;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer-logo-container {
+                margin-bottom: 1.5rem;
+            }
+            .footer-copyright {
+                text-align: center;
+                margin-top: 1.5rem;
+            }
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .header-content {
