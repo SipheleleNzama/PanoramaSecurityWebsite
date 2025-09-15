@@ -294,18 +294,14 @@ CC :root {
         
         /* About Section */
 #about {
-    padding: 6rem 0;
-    /* Add these new background properties */
-    background-color: #f9f9f9; /* Your existing background color */
-    background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('Images/PSLogo.png');
-    background-size: 200px; /* Adjust size of the logo as needed */
+   padding: 6rem 0;
+    background-color: #f9f9f9;
+    background-size: 200px;
+    background-image: url('../Images/PSLogo.png');
     background-repeat: no-repeat;
-    background-position: center center; /* Center the logo */
-    background-blend-mode: lighten; /* Blends with the background color */
+    background-position: center center;
+    background-blend-mode: lighten;
 }
-
-
-
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -422,13 +418,12 @@ CC :root {
 
 #contact {
     padding: 6rem 0;
-    /* Add these new background properties */
-    background-color: #f9f9f9; /* Your existing background color */
-    background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('Images/PSLogo.png');
-    background-size: 200px; /* Adjust size of the logo as needed */
+    background-color: #f9f9f9;
+    background-size: 200px;
+    background-image: url('../Images/PSLogo.png');
     background-repeat: no-repeat;
-    background-position: center center; /* Center the logo */
-    background-blend-mode: lighten; /* Blends with the background color */
+    background-position: center center;
+    background-blend-mode: lighten;
 }
 
         .contact-content {
