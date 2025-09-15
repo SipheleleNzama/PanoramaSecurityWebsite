@@ -7,6 +7,34 @@ CC :root {
             --text: #333;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+        .back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 999;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: #791c0a;
+}
  * {
             margin: 0;
             padding: 0;
@@ -265,6 +293,19 @@ CC :root {
         }
         
         /* About Section */
+#about {
+    padding: 6rem 0;
+    /* Add these new background properties */
+    background-color: #f9f9f9; /* Your existing background color */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('Images/PSLogo.png');
+    background-size: 200px; /* Adjust size of the logo as needed */
+    background-repeat: no-repeat;
+    background-position: center center; /* Center the logo */
+    background-blend-mode: lighten; /* Blends with the background color */
+}
+
+
+
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -378,6 +419,18 @@ CC :root {
         }
         
         /* Contact Section */
+
+#contact {
+    padding: 6rem 0;
+    /* Add these new background properties */
+    background-color: #f9f9f9; /* Your existing background color */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('Images/PSLogo.png');
+    background-size: 200px; /* Adjust size of the logo as needed */
+    background-repeat: no-repeat;
+    background-position: center center; /* Center the logo */
+    background-blend-mode: lighten; /* Blends with the background color */
+}
+
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -498,4 +551,4 @@ CC :root {
             .social-icons {
                 margin-top: 1rem;
             }
-        }
+        } 
