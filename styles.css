@@ -236,6 +236,9 @@ CC :root {
             color: white;
             text-align: center;
             padding: 5rem 1rem;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         
         .hero h2 {
@@ -351,7 +354,7 @@ CC :root {
 }
 
 .about-image {
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../Images/Employees1.jpg') no-repeat center center/cover;
@@ -361,6 +364,8 @@ CC :root {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     transform: rotate(3deg);
     transition: transform 0.3s ease;
+    max-width: 500px;
+    margin: 0 auto; 
 }
 
 /* Adjust grid for responsiveness to prevent the image from being too small on small screens */

@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const loader = document.getElementById('loader-wrapper');
         setTimeout(function() {
             loader.classList.add('hidden');
-            }, 2000);
+            }, 1000);
     }); 
 
 const sections = document.querySelectorAll('.slide-in');
