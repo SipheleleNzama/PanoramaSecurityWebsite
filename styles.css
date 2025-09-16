@@ -251,7 +251,12 @@ CC :root {
             max-width: 800px;
             margin: 0 auto 2rem;
         }
-        
+    a:focus,
+    button:focus {
+        outline: 2px solid #9C220C;
+        outline-offset: 3px;
+        border-radius: 2px;
+    }
         .btn {
             display: inline-block;
             background: #9C220C;
