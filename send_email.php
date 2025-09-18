@@ -13,42 +13,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $mail = new PHPMailer(true);
 
-        try 
-        {
-            // Server settings 
-            $mail->isSMTP();                                            
-            $mail->Host       = 'mail.panoramasecurity.co.za';
-            $mail->SMTPAuth   = true;
-            $mail->Username   = 'info@panoramasecurity.co.za';
-            $mail->Password = $config['smtp_password'];
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;   
-            $mail->Port       = 465; 
+    try {
+        // Enable debug output
+        $mail->SMTPDebug = 2;
+        $mail->Debugoutput = 'html';
+        
+        // Server settings - Try port 587 first
+        $mail->isSMTP();                                            
+        $mail->Host       = 'ibis.aserv.co.za';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'info@panoramasecurity.co.za';
+        $mail->Password   = 'PSecurity2025*';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;   
+        $mail->Port       = 587; 
 
-             // Recipients
-            $mail->setFrom('info@panoramasecurity.co.za', 'Panorama Security Website');
-            $mail->addAddress('info@panoramasecurity.co.za');
-            $mail->addReplyTo($email, $name);
+        // Recipients
+        $mail->setFrom('info@panoramasecurity.co.za', 'Panorama Security Website');
+        $mail->addAddress('info@panoramasecurity.co.za');
+        $mail->addReplyTo($email, $name);
 
-            //content
-            $mail->isHTML(false);
-            $mail->Subject = 'New Contact Form Message from PanoramaSecurity.co.za';
-            $mail->Body    = "You have received a new message from your website contact form.\n\n";
-            $mail->Body   .= "Name: $name\n";
-            $mail->Body   .= "Email: $email\n";
-            $mail->Body   .= "Phone: $phone\n";
-            $mail->Body   .= "Message:\n$message\n";
+        // Content
+        $mail->isHTML(false);
+        $mail->Subject = 'New Contact Form Message from PanoramaSecurity.co.za';
+        $mail->Body    = "You have received a new message from your website contact form.\n\n";
+        $mail->Body   .= "Name: $name\n";
+        $mail->Body   .= "Email: $email\n";
+        $mail->Body   .= "Phone: $phone\n";
+        $mail->Body   .= "Message:\n$message\n";
 
-
-            $mail->send();
-                header('Location: index.html?success=true');
-                exit();
-        } catch (Exception $e) {
-            error_log("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
-            header('Location: index.html?success=false');
-            exit();
-        }
-    } else {
-        header('Location: index.html');
-        exit();
+        $mail->send();
+        echo '<h3>SUCCESS: Message sent successfully!</h3>';
+        
+    } catch (Exception $e) {
+        echo '<h3>ERROR: Message could not be sent.</h3>';
+        echo '<p>Mailer Error: ' . $mail->ErrorInfo . '</p>';
+    }
+} else {
+    echo '<p>No POST data received</p>';
 }
 ?>
