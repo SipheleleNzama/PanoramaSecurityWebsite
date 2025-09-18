@@ -14,11 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail = new PHPMailer(true);
 
     try {
-        // Enable debug output
-        $mail->SMTPDebug = 2;
-        $mail->Debugoutput = 'html';
-        
-        // Server settings - Try port 587 first
+        // Server settings
         $mail->isSMTP();                                            
         $mail->Host       = 'ibis.aserv.co.za';
         $mail->SMTPAuth   = true;
@@ -42,11 +38,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Body   .= "Message:\n$message\n";
 
         $mail->send();
-        echo '<h3>SUCCESS: Message sent successfully!</h3>';
+        header('Location: index.html?success=true');
+        exit();
         
     } catch (Exception $e) {
-        echo '<h3>ERROR: Message could not be sent.</h3>';
-        echo '<p>Mailer Error: ' . $mail->ErrorInfo . '</p>';
+        error_log("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
+        header('Location: index.html?success=false');
+        exit();
     }
 } else {
     echo '<p>No POST data received</p>';

@@ -638,7 +638,42 @@ footer {
         transform: rotate(0deg);
         margin: 2rem auto 0;
     }
+/* Notifications Section */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    z-index: 10000;
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
 
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification.success {
+    background: #28a745;
+}
+
+.notification.error {
+    background: #dc3545;
+}
+
+.notification .close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    float: right;
+    margin-left: 15px;
+    cursor: pointer;
+}
     /* Footer */
     .footer-content {
         grid-template-columns: 1fr;
@@ -653,4 +688,4 @@ footer {
         text-align: center;
         margin-top: 1.5rem;
     }
-}
+} 

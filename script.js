@@ -1,10 +1,53 @@
+// Function to show notification
+function showNotification(message, type) {
+    // Remove existing notifications
+    const existingNotifications = document.querySelectorAll('.notification');
+    existingNotifications.forEach(notification => notification.remove());
+
+    // Create new notification
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.innerHTML = `
+        ${message}
+        <button class="close-btn" onclick="this.parentElement.remove()">&times;</button>
+    `;
+
+    // Add to page
+    document.body.appendChild(notification);
+
+    // Show notification
+    setTimeout(() => notification.classList.add('show'), 100);
+
+    // Auto-hide after 5 seconds
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+    }, 5000);
+}
+
+// Single DOMContentLoaded event listener with all functionality
 document.addEventListener('DOMContentLoaded', function() {
+    // URL parameter check for notifications
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    if (urlParams.get('success') === 'true') {
+        showNotification('Message sent successfully! We will get back to you soon.', 'success');
+        // Clean URL
+        window.history.replaceState({}, document.title, window.location.pathname);
+    } else if (urlParams.get('success') === 'false') {
+        showNotification('Failed to send message. Please try again or contact us directly.', 'error');
+        // Clean URL
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+
+    // Hamburger menu functionality
     const hamburger = document.querySelector('.hamburger-menu');
     const navMenu = document.getElementById('main-nav');
     hamburger.addEventListener('click', function() {
         navMenu.classList.toggle('active');
     });
 
+    // Loader functionality
     window.addEventListener('load', function() {
         const loader = document.getElementById('loader-wrapper');
         setTimeout(function() {
@@ -12,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1000);
     });
 
+    // Intersection Observer for slide-in sections
     const sections = document.querySelectorAll('.slide-in');
     const observerOptions = {
         root: null,
@@ -31,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
         sectionObserver.observe(section);
     });
 
+    // Back to top button functionality
     const backToTopButton = document.getElementById('back-to-top');
 
     window.addEventListener('scroll', function() {
