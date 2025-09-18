@@ -1,39 +1,51 @@
-<?php
+<?php 
+require 'vendor/autoload.php'; 
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Collect and sanitize form data
     $name = htmlspecialchars(trim($_POST['name']));
     $email = htmlspecialchars(trim($_POST['email']));
     $phone = htmlspecialchars(trim($_POST['tel']));
     $message = htmlspecialchars(trim($_POST['message']));
 
-    // Your email address
-    $to = 'Anelenzama07@gmail.com';
+    $mail = new PHPMailer(true);
 
-    // Email subject
-    $subject = 'New Contact Form Message from PanoramaSecurity.co.za';
+        try 
+        {
+            // Server settings 
+            $mail->isSMTP();                                            
+            $mail->Host       = 'mail.panoramasecurity.co.za';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'info@panoramasecurity.co.za';
+            $mail->Password   = 'PSecurity2025*';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;   
+            $mail->Port       = 465; 
 
-    // Email body
-    $body = "You have received a new message from your website contact form.\n\n";
-    $body .= "Name: $name\n";
-    $body .= "Email: $email\n";
-    $body .= "Phone: $phone\n";
-    $body .= "Message:\n$message\n";
+             // Recipients
+            $mail->setFrom('info@panoramasecurity.co.za', 'Panorama Security Website');
+            $mail->addAddress('info@panoramasecurity.co.za');
+            $mail->addReplyTo($email, $name);
 
-    // Email headers
-    $headers = "From: webmaster@panoramasecurity.co.za\r\n";
-    $headers .= "Reply-To: $email\r\n";
-    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+            //content
+            $mail->isHTML(false);
+            $mail->Subject = 'New Contact Form Message from PanoramaSecurity.co.za';
+            $mail->Body    = "You have received a new message from your website contact form.\n\n";
+            $mail->Body   .= "Name: $name\n";
+            $mail->Body   .= "Email: $email\n";
+            $mail->Body   .= "Phone: $phone\n";
+            $mail->Body   .= "Message:\n$message\n";
 
-    // Send the email
-    if (mail($to, $subject, $body, $headers)) {
-        // Redirect back to the homepage with a success message
-        header('Location: index.html?success=true');
+
+            $mail->send();
+                header('Location: index.html?success=true');
+        } catch (Exception $e) {
+            error_log("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
+            header('Location: index.html?success=false');
+        }
     } else {
-        // Redirect back to the homepage with an error message
-        header('Location: index.html?success=false');
-    }
-} else {
-    // Not a POST request, redirect to homepage
-    header('Location: index.html');
+        header('Location: index.html');
 }
 ?>
