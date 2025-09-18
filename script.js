@@ -49,11 +49,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Loader functionality
     window.addEventListener('load', function() {
-        const loader = document.getElementById('loader-wrapper');
+    const loader = document.getElementById('loader-wrapper');
+    
+    // Check if we need to show notifications first
+    const urlParams = new URLSearchParams(window.location.search);
+    const hasNotification = urlParams.get('success') === 'true' || urlParams.get('success') === 'false';
+    
+    if (hasNotification) {
+        // Hide loader immediately if notification needs to show
+        loader.classList.add('hidden');
+    } else {
+        // Normal loader behavior
         setTimeout(function() {
             loader.classList.add('hidden');
         }, 1000);
-    });
+    }
+});
 
     // Intersection Observer for slide-in sections
     const sections = document.querySelectorAll('.slide-in');
