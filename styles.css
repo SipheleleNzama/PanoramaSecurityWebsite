@@ -8,7 +8,10 @@
     --text: #333;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
 /* Base Styles */
 * {
     margin: 0;
@@ -28,9 +31,10 @@ body {
 }
 
 .container {
-    width: 90%;
+    width: 95%;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 10px;
 }
 
 /* Reusable Components */
@@ -95,7 +99,91 @@ header {
     z-index: 100;
     box-shadow: var(--shadow);
 }
+@media (max-width: 768px) {
+    /* Logo and header fixes */
+    .logo h1 {
+        font-size: 1.2rem;
+    }
+    
+    .logo-img {
+        height: 35px;
+    }
+    
+    /* Hero section mobile */
+    .hero {
+        padding: 3rem 1rem;
+    }
+    
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        padding: 0 15px;
+    }
+    
+    /* Section padding */
+    section {
+        padding: 3rem 0;
+    }
+    
+    /* Services grid mobile */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    /* Contact form mobile */
+    .contact-form {
+        padding: 0;
+    }
+    
+    .contact-map iframe {
+        height: 250px;
+    }
+    
+    /* Text sizing */
+    .section-title h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* About text spacing */
+    .about-text {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    /* Fix any overflow issues */
+    * {
+        max-width: 100%;
+    }
+    
+    /* Navigation mobile fix */
+    .header-content {
+        padding: 0 10px;
+    }
+}
 
+/* Extra small phones */
+@media (max-width: 480px) {
+    .container {
+        width: 98%;
+        padding: 0 5px;
+    }
+    
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+    
+    .logo h1 {
+        font-size: 1rem;
+    }
+    
+    .service-card {
+        padding: 1.5rem;
+    }
+}
 .header-content {
     display: flex;
     justify-content: space-between;

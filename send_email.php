@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->Host       = 'mail.panoramasecurity.co.za';
             $mail->SMTPAuth   = true;
             $mail->Username   = 'info@panoramasecurity.co.za';
-            $mail->Password   = 'PSecurity2025*';
+            $mail->Password = $config['smtp_password'];
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;   
             $mail->Port       = 465; 
 
@@ -41,11 +41,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $mail->send();
                 header('Location: index.html?success=true');
+                exit();
         } catch (Exception $e) {
             error_log("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
             header('Location: index.html?success=false');
+            exit();
         }
     } else {
         header('Location: index.html');
+        exit();
 }
 ?>
