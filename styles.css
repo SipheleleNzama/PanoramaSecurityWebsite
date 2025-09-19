@@ -99,91 +99,7 @@ header {
     z-index: 100;
     box-shadow: var(--shadow);
 }
-@media (max-width: 768px) {
-    /* Logo and header fixes */
-    .logo h1 {
-        font-size: 1.2rem;
-    }
-    
-    .logo-img {
-        height: 35px;
-    }
-    
-    /* Hero section mobile */
-    .hero {
-        padding: 3rem 1rem;
-    }
-    
-    .hero h2 {
-        font-size: 1.8rem;
-    }
-    
-    .hero p {
-        font-size: 1rem;
-        padding: 0 15px;
-    }
-    
-    /* Section padding */
-    section {
-        padding: 3rem 0;
-    }
-    
-    /* Services grid mobile */
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    /* Contact form mobile */
-    .contact-form {
-        padding: 0;
-    }
-    
-    .contact-map iframe {
-        height: 250px;
-    }
-    
-    /* Text sizing */
-    .section-title h2 {
-        font-size: 1.5rem;
-    }
-    
-    /* About text spacing */
-    .about-text {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-    
-    /* Fix any overflow issues */
-    * {
-        max-width: 100%;
-    }
-    
-    /* Navigation mobile fix */
-    .header-content {
-        padding: 0 10px;
-    }
-}
 
-/* Extra small phones */
-@media (max-width: 480px) {
-    .container {
-        width: 98%;
-        padding: 0 5px;
-    }
-    
-    .hero h2 {
-        font-size: 1.5rem;
-    }
-    
-    .logo h1 {
-        font-size: 1rem;
-    }
-    
-    .service-card {
-        padding: 1.5rem;
-    }
-}
 .header-content {
     display: flex;
     justify-content: space-between;
@@ -594,8 +510,110 @@ footer {
     background-color: #791c0a;
 }
 
+/* Notifications Section */
+.notification {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    z-index: 99999;
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    max-width: 300px;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification.success {
+    background: #28a745;
+}
+
+.notification.error {
+    background: #dc3545;
+}
+
+.notification .close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    float: right;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
 /* Responsive Design (Combined) */
 @media (max-width: 768px) {
+    /* Logo and header fixes */
+    .logo h1 {
+        font-size: 1.2rem;
+    }
+    
+    .logo-img {
+        height: 35px;
+    }
+    
+    /* Hero section mobile */
+    .hero {
+        padding: 3rem 1rem;
+    }
+    
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        padding: 0 15px;
+    }
+    
+    /* Section padding */
+    section {
+        padding: 3rem 0;
+    }
+    
+    /* Services grid mobile */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    /* Contact form mobile */
+    .contact-form {
+        padding: 0;
+    }
+    
+    .contact-map iframe {
+        height: 250px;
+    }
+    
+    /* Text sizing */
+    .section-title h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* About text spacing */
+    .about-text {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    /* Fix any overflow issues */
+    * {
+        max-width: 100%;
+    }
+    
+    /* Navigation mobile fix */
+    .header-content {
+        padding: 0 10px;
+    }
+
     /* Header */
     .header-content {
         flex-direction: row;
@@ -638,42 +656,7 @@ footer {
         transform: rotate(0deg);
         margin: 2rem auto 0;
     }
-/* Notifications Section */
-.notification {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 15px 20px;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    z-index: 10000;
-    transform: translateX(400px);
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
 
-.notification.show {
-    transform: translateX(0);
-}
-
-.notification.success {
-    background: #28a745;
-}
-
-.notification.error {
-    background: #dc3545;
-}
-
-.notification .close-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 18px;
-    float: right;
-    margin-left: 15px;
-    cursor: pointer;
-}
     /* Footer */
     .footer-content {
         grid-template-columns: 1fr;
@@ -688,4 +671,24 @@ footer {
         text-align: center;
         margin-top: 1.5rem;
     }
-} 
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+    .container {
+        width: 98%;
+        padding: 0 5px;
+    }
+    
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+    
+    .logo h1 {
+        font-size: 1rem;
+    }
+    
+    .service-card {
+        padding: 1.5rem;
+    }
+}
